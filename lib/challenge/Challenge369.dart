@@ -1,8 +1,4 @@
 main() {
-  var player1 = Player("player1");
-  var player2 = Player("player2");
-  var player3 = Player("player3");
-  var player4 = Player("player4");
 
   List<Player> players = [Player("player1"),Player("player2"),Player("player3"),Player("player4")];
 
