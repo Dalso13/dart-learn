@@ -5,4 +5,8 @@ class Cleric{
   final int maxHp = 50;
   final int maxMp = 10;
 
+  void selfAid(){
+    mp -= 5;
+    hp = maxHp;
+  }
 }
