@@ -1,3 +1,4 @@
+
 main() {
   Hard hard = Hard();
   hard.b2();
