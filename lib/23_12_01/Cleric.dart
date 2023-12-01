@@ -2,34 +2,37 @@ import 'dart:math';
 
 class Cleric {
   String name;
-  int hp;
-  int mp;
+  late int _hp;
+  late int _mp;
   static final int maxHp = 50;
   static final int maxMp = 10;
 
   Cleric(
     this.name ,{
-      this.hp = 50,
-      this.mp = 10,
-  });
+      int hp = 50,
+      int mp = 10,
+  }) {
+    _hp = hp;
+    _mp = mp;
+  }
 
   void selfAid() {
-    if (mp < 5) {
+    if (_mp < 5) {
       return;
     }
-    mp -= 5;
-    hp = maxHp;
+    _mp -= 5;
+    _hp = maxHp;
   }
 
   int pray(int a) {
     int ran = Random().nextInt(3);
     int recovery = ran + a;
 
-    if (recovery + mp > maxMp) {
-      recovery = maxMp - mp;
-      mp = maxMp;
+    if (recovery + _mp > maxMp) {
+      recovery = maxMp - _mp;
+      _mp = maxMp;
     } else {
-      mp += recovery;
+      _mp += recovery;
     }
 
     return recovery;

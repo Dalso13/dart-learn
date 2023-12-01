@@ -1,14 +1,14 @@
 import 'dart:math';
 
-class Cleric{
+class Cleric {
   String? name;
   int _hp = 50;
   int _mp = 10;
   final int maxHp = 50;
   final int maxMp = 10;
 
-  void selfAid(){
-    if(_mp < 5){
+  void selfAid() {
+    if (_mp < 5) {
       return;
     }
     _mp -= 5;
@@ -19,7 +19,7 @@ class Cleric{
     int ran = Random().nextInt(3);
     int recovery = ran + a;
 
-    if(recovery + _mp > maxMp){
+    if (recovery + _mp > maxMp) {
       recovery = maxMp - _mp;
       _mp = maxMp;
     } else {
@@ -29,3 +29,4 @@ class Cleric{
     return recovery;
   }
 }
+
