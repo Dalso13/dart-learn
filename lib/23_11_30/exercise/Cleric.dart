@@ -18,10 +18,12 @@ class Cleric{
   int pray(int a) {
     int ran = Random().nextInt(3);
     int recovery = ran + a;
-    _mp += recovery;
 
-    if(_mp > maxMp){
+    if(recovery + _mp > maxMp){
+      recovery = maxMp - _mp;
       _mp = maxMp;
+    } else {
+      _mp += recovery;
     }
 
     return recovery;
