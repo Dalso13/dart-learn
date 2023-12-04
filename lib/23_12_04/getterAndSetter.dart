@@ -8,7 +8,7 @@ class Test{
   };*/
   
   
-  // dart 사용법
+  // dart 사용법 프로퍼티
   int get hp => _hp;
   set hp(int a) => {
     _hp = _hp + a
