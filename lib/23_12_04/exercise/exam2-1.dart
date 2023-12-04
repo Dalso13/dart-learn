@@ -11,7 +11,7 @@ main() {
   persons.add(Person("홍길동"));
   persons.add(Person("한석봉"));
 
-  for (var person in persons) {
+/*  for (var person in persons) {
     print("이름 : ${person.name}");
   }
 
@@ -21,6 +21,24 @@ main() {
 
   persons.forEach((var a) {
     print("이름 : ${a.name}");
+  });*/
+
+
+  /*
+    연습문제 2-3 에서 작성한 Person 클래스로 생성한 ‘홍길동’, ‘한석봉'의 나이를 각각 20, 25살 이라고 할 때, 이름과 나이를 쌍으로 적당한 컬렉션에 넣습니다.
+    그 다음, 컬렉션에 저장한 값을 하나씩 다음과 같이 출력합니다.
+    “홍길동의 나이는 20살”
+    “한석봉의 나이는 25살”
+  */
+
+
+  Map<String,int> map = {};
+
+  map[persons[0].name] = 20;
+  map[persons[1].name] = 25;
+  
+  map.forEach((key, value) { 
+    print("$key의 나이는 $value살 ");
   });
 
 
@@ -28,6 +46,5 @@ main() {
 
 class Person {
   String name;
-
   Person(this.name);
 }
