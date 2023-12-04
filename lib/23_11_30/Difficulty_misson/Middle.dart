@@ -22,6 +22,7 @@ class Middle {
     }
   }
 
+  // 안품
   void f2(){
     String? name = stdin.readLineSync();
     if(name == null || name == ""){

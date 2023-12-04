@@ -17,7 +17,6 @@ main() {
   setNum.add(1);
   setNum.add(2);
   setNum.add(1);
-  
   // 이터레이터 사용
   var itr = setNum.iterator;
   while(itr.moveNext()){
@@ -30,6 +29,6 @@ main() {
   }
 
   Map<String,int> map = {};
-  
+
 
 }
