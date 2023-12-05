@@ -1,13 +1,34 @@
-abstract class TangibleAsset {
-  String name, color;
+// 가
+abstract class Asset{
+  String name;
   int price;
 
-  TangibleAsset({
+  Asset({
     required this.name,
-    required this.color,
     required this.price,
   });
 }
+
+// 나 : 무형자산
+abstract class IntangibleAsset extends Asset{
+
+  IntangibleAsset({
+    required super.name,
+    required super.price,
+  });
+}
+// 유형자산
+abstract class TangibleAsset extends Asset{
+  String color;
+
+  TangibleAsset({
+    required super.name,
+    required this.color,
+    required super.price,
+  });
+}
+
+
 
 class Book extends TangibleAsset {
   String isbn;
