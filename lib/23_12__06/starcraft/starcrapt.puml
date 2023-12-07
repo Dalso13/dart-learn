@@ -1,0 +1,119 @@
+@startuml
+class 스타객체{
+    이름
+    체력
+   }
+
+package 113 {
+
+    interface 유닛{
+    탄생()
+    죽음()
+    }
+
+    interface 건물{
+    건설()
+    파괴()
+    }
+
+}
+package 213 {
+    interface 생물{
+        치료받다()
+        }
+
+        interface 기계{
+        수리받다()
+    }
+}
+
+package 116 {
+    class 테란건물
+    class 저그건물
+    class 프로토스건물
+}
+
+package 1120 {
+ class 테란유닛
+ class 저그유닛
+ class 프로토스유닛
+}
+package "coll" {
+    class  "Terran"
+    class  "Zerg"{
+         +regen()
+    }
+    class  "Protoss"{
+        +regenShield()
+    }
+}
+package "coll3" {
+   class 벌처
+   class 탱크
+   class 마린
+   class 매딕 {
+   치료하다(생물)
+   }
+   class SCV {
+   자원채취(자원)
+   수리하다(기계)
+   }
+}
+package "프로토스 유닛" {
+    class 질럿
+    class 드라군
+}
+
+package "casdasd" {
+class 배럭
+class 해처리
+class 넥서스
+}
+스타객체 <-- "Terran"
+스타객체 <-- "Zerg"
+스타객체 <-- "Protoss"
+생물 <.. Zerg
+
+
+유닛 <.. 테란유닛
+유닛 <.. 저그유닛
+유닛 <.. 프로토스유닛
+
+Terran <-- 테란유닛
+Zerg <-- 저그유닛
+Protoss <-- 프로토스유닛
+
+건물  <.. 테란건물
+건물  <.. 저그건물
+건물  <.. 프로토스건물
+기계  <.. 테란건물
+
+Terran  <-- 테란건물
+Zerg  <-- 저그건물
+Protoss  <-- 프로토스건물
+
+"테란유닛" <|-- "매딕"
+"테란유닛" <|-- "SCV"
+"테란유닛" <|-- "탱크"
+"테란유닛" <|-- "벌처"
+"테란유닛" <|-- "마린"
+
+프로토스유닛 <|-- 질럿
+프로토스유닛 <|-- 드라군
+
+"생물" <.. "매딕"
+"생물" <.. "SCV"
+"기계" <.. "탱크"
+"기계" <.. "벌처"
+"생물" <.. "마린"
+"생물" <.. 질럿
+"기계" <.. 드라군
+
+"기계" <.. "탱크"
+"기계" <.. "벌처"
+
+테란건물 <-- 배럭
+저그건물 <-- 해처리
+프로토스건물 <-- 넥서스
+
+@enduml
