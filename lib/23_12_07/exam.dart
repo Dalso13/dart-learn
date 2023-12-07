@@ -57,3 +57,27 @@ main() {
     print(value.publishDate);
   }
 }
+
+// 생성자 json 느낌으로 안만들고 기존처럼 만들때
+
+/*
+class Book2 {
+  String title;
+  DateTime publishDate = DateTime.now();
+  String comment;
+
+  Book2(this.title, this.publishDate, this.comment);
+
+  Book2 copyWith(
+    String? title,
+    DateTime? publishDate,
+    String? comment,
+  ) {
+    return Book2(
+     title ?? this.title,
+     publishDate ?? this.publishDate,
+     comment ?? this.comment,
+    );
+  }
+}
+*/
