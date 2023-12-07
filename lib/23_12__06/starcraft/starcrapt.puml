@@ -4,7 +4,7 @@ class 스타객체{
     체력
    }
 
-package 113 {
+package 특성 {
 
     interface 유닛{
     탄생()
@@ -17,7 +17,7 @@ package 113 {
     }
 
 }
-package 213 {
+package 유기체 {
     interface 생물{
         치료받다()
         }
@@ -27,27 +27,28 @@ package 213 {
     }
 }
 
-package 116 {
+package 종족건물 {
     class 테란건물
     class 저그건물
     class 프로토스건물
 }
 
-package 1120 {
+package 종족유닛 {
  class 테란유닛
  class 저그유닛
  class 프로토스유닛
 }
-package "coll" {
-    class  "Terran"
-    class  "Zerg"{
-         +regen()
+package "종족" {
+    class  테란
+    class  저그{
+         +체력회복()
     }
-    class  "Protoss"{
-        +regenShield()
+    class  프로토스{
+        +int 쉴드
+        +쉴드회복()
     }
 }
-package "coll3" {
+package "테란유닛들" {
    class 벌처
    class 탱크
    class 마린
@@ -59,44 +60,44 @@ package "coll3" {
    수리하다(기계)
    }
 }
-package "프로토스 유닛" {
+package "프로토스 유닛들" {
     class 질럿
     class 드라군
 }
 
-package "casdasd" {
+package "건물들" {
 class 배럭
 class 해처리
 class 넥서스
 }
-스타객체 <-- "Terran"
-스타객체 <-- "Zerg"
-스타객체 <-- "Protoss"
-생물 <.. Zerg
+스타객체 <-- 테란
+스타객체 <-- 저그
+스타객체 <-- 프로토스
+생물 <.. 저그
 
 
 유닛 <.. 테란유닛
 유닛 <.. 저그유닛
 유닛 <.. 프로토스유닛
 
-Terran <-- 테란유닛
-Zerg <-- 저그유닛
-Protoss <-- 프로토스유닛
+테란 <-- 테란유닛
+저그 <-- 저그유닛
+프로토스 <-- 프로토스유닛
 
 건물  <.. 테란건물
 건물  <.. 저그건물
 건물  <.. 프로토스건물
 기계  <.. 테란건물
 
-Terran  <-- 테란건물
-Zerg  <-- 저그건물
-Protoss  <-- 프로토스건물
+테란  <-- 테란건물
+저그  <-- 저그건물
+프로토스  <-- 프로토스건물
 
-"테란유닛" <|-- "매딕"
-"테란유닛" <|-- "SCV"
-"테란유닛" <|-- "탱크"
-"테란유닛" <|-- "벌처"
-"테란유닛" <|-- "마린"
+테란유닛 <|-- 매딕
+테란유닛 <|-- SCV
+테란유닛 <|-- 탱크
+테란유닛 <|-- 벌처
+테란유닛 <|-- 마린
 
 프로토스유닛 <|-- 질럿
 프로토스유닛 <|-- 드라군
