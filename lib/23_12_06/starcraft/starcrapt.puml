@@ -66,9 +66,9 @@ package "프로토스 유닛들" {
 }
 
 package "건물들" {
-class 배럭
-class 해처리
-class 넥서스
+    class 배럭
+    class 해처리
+    class 넥서스
 }
 스타객체 <-- 테란
 스타객체 <-- 저그

@@ -1,5 +1,5 @@
-import 'package:untitled/23_12__06/starcraft/cure.dart';
-import 'package:untitled/23_12__06/starcraft/units.dart';
+import 'package:untitled/23_12_06/starcraft/cure.dart';
+import 'package:untitled/23_12_06/starcraft/units.dart';
 
 class Medic extends TerranUnit implements Organism {
   Medic({required super.name, required super.hp});
