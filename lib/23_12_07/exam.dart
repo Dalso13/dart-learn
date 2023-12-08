@@ -1,3 +1,6 @@
+
+import 'package:intl/intl.dart';
+
 class Book {
   String title;
   DateTime publishDate = DateTime.now();
@@ -15,10 +18,11 @@ class Book {
       other is Book &&
           runtimeType == other.runtimeType &&
           title == other.title &&
-          comment == other.comment;
+          DateFormat('yyyy-MM-dd').format(publishDate) ==
+              DateFormat('yyyy-MM-dd').format(other.publishDate);
 
   @override
-  int get hashCode => title.hashCode ^ comment.hashCode;
+  int get hashCode => title.hashCode ^ publishDate.hashCode;
 
   Book copyWith({
     String? title,
