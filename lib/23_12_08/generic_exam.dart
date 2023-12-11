@@ -38,6 +38,8 @@ enum KeyType {
 }
 
 main() {
+  print(KeyType.values);
+
   StringBox<KeyType> key = StringBox(KeyType.button);
 
   for(int i = 0; i < 9999; i++){

@@ -55,7 +55,11 @@ main() {
 
   List<Book> list = [book1, book2, book3];
 
-  list.sort((a, b) => -(a.publishDate.compareTo(b.publishDate)));
+  list.sort((a, b) {
+    String before = '${a.publishDate.year}${a.publishDate.month}${a.publishDate.day}';
+    String after = '${b.publishDate.year}${b.publishDate.month}${b.publishDate.day}';
+    return -(before.compareTo(after));
+  });
 
   for (var value in list) {
     print(value.publishDate);
