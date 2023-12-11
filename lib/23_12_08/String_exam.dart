@@ -1,16 +1,14 @@
-
 main() {
-
   Word word = Word(word: "hello");
 
   print(word.isVowel(2));
   print(word.isConsonant(2));
 }
 
-
 class Word {
   String word = '';
-  final List<String> checked = ["a",'e','i','o','u'];
+  final List<String> checked = ['a', 'e', 'i', 'o', 'u'];
+
   Word({
     required this.word,
   });
@@ -18,14 +16,14 @@ class Word {
   bool isVowel(int i) {
     bool isVowel = false;
 
-    if(i > word.length || i < 1){
+    if (i > word.length || i < 1) {
       print("잘못된 인자");
     } else {
       for (var check in checked) {
-          if(word.substring(i-1,i).toLowerCase() == check){
-            isVowel = true;
-            break;
-          }
+        if (word.substring(i - 1, i).toLowerCase() == check) {
+          isVowel = true;
+          break;
+        }
       }
     }
     return isVowel;
@@ -34,12 +32,12 @@ class Word {
   bool isConsonant(int i) {
     bool isVowel = true;
 
-    if(i > word.length || i < 1) {
+    if (i > word.length || i < 1) {
       isVowel = false;
       print("잘못된 인자");
     } else {
       for (var check in checked) {
-        if(word.substring(i-1,i).toLowerCase() == check){
+        if (word.substring(i - 1, i).toLowerCase() == check) {
           isVowel = false;
           break;
         }
@@ -47,6 +45,4 @@ class Word {
     }
     return isVowel;
   }
-
-
 }
