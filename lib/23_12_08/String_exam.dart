@@ -30,19 +30,6 @@ class Word {
   }
 
   bool isConsonant(int i) {
-    bool isVowel = true;
-
-    if (i > word.length || i < 1) {
-      isVowel = false;
-      print("잘못된 인자");
-    } else {
-      for (var check in checked) {
-        if (word.substring(i - 1, i).toLowerCase() == check) {
-          isVowel = false;
-          break;
-        }
-      }
-    }
-    return isVowel;
+    return !isVowel(i);
   }
 }
