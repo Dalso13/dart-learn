@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 class Employee {
@@ -34,7 +35,7 @@ main(){
 
   final File file = File("company.txt");
 
-  String put = dep.toJson().toString();
+  String put = jsonEncode(dep.toJson());
 
   file.writeAsStringSync(put);
 
