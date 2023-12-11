@@ -1,11 +1,11 @@
-class StringBox<E extends KeyType> {
+class StrongBox<E extends KeyType> {
   E _put;
   int padlock = 0;
   int button  = 0;
   int dial  = 0;
   int finger  = 0;
 
-  StringBox(this._put);
+  StrongBox(this._put);
 
   set setPut(E put){
     _put = put;
@@ -40,7 +40,7 @@ enum KeyType {
 main() {
   print(KeyType.values);
 
-  StringBox<KeyType> key = StringBox(KeyType.button);
+  StrongBox<KeyType> key = StrongBox(KeyType.button);
 
   for(int i = 0; i < 9999; i++){
     key.get();
