@@ -22,7 +22,7 @@ class Word {
       print("잘못된 인자");
     } else {
       for (var check in checked) {
-          if(word.substring(i-1,i) == check){
+          if(word.substring(i-1,i).toLowerCase() == check){
             isVowel = true;
             break;
           }
@@ -39,7 +39,7 @@ class Word {
       print("잘못된 인자");
     } else {
       for (var check in checked) {
-        if(word.substring(i-1,i) == check){
+        if(word.substring(i-1,i).toLowerCase() == check){
           isVowel = false;
           break;
         }
