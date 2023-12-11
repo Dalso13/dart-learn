@@ -1,30 +1,28 @@
-class StrongBox<E extends KeyType> {
-  E _put;
-  int padlock = 0;
-  int button  = 0;
-  int dial  = 0;
-  int finger  = 0;
+class StrongBox<E> {
+  E? _put;
+  KeyType keyType;
+  int _count = 0;
 
-  StrongBox(this._put);
+  StrongBox(this.keyType);
 
-  set setPut(E put){
+  void setPut(E put){
     _put = put;
   }
 
-  KeyType? get() {
-    switch(_put) {
+  E? get() {
+    switch(keyType) {
       case KeyType.padlock:
-        padlock++;
-        return padlock >= 1024 ? KeyType.padlock : null;
+        _count++;
+        return _count >= 1024 ? _put : null;
       case KeyType.button:
-        button++;
-        return button >= 10000 ? KeyType.button : null;
+        _count++;
+        return _count >= 10000 ? _put : null;
       case KeyType.dial:
-        dial++;
-        return dial >= 30000 ? KeyType.dial : null;
+        _count++;
+        return _count >= 30000 ? _put : null;
       case KeyType.finger:
-        finger++;
-        return finger >= 1000000 ? KeyType.finger : null;
+        _count++;
+        return _count >= 1000000 ? _put : null;
     }
   }
 
@@ -40,8 +38,9 @@ enum KeyType {
 main() {
   print(KeyType.values);
 
-  StrongBox<KeyType> key = StrongBox(KeyType.button);
-
+  StrongBox<int> key = StrongBox(KeyType.button);
+  key.setPut(100);
+  
   for(int i = 0; i < 9999; i++){
     key.get();
   }
