@@ -1,1 +1,1 @@
-{name: 오준석, leader: {name: 장동완, age: 23}}
+{"name":"총무부","leader":{"name":"홍길동","age":41}}
