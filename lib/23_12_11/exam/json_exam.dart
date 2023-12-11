@@ -30,7 +30,7 @@ class Department {
 }
 
 main(){
-  final Department dep = Department("오준석", Employee("장동완",23));
+  final Department dep = Department("총무부", Employee("홍길동",41));
 
   final File file = File("company.txt");
 
