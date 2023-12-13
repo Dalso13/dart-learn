@@ -27,6 +27,7 @@ final transactions = [
 
 
 main() {
+
   // 1. 2011년에 일어난 모든 트랜잭션을 찾아 가격 기준 오름차순으로 정리하여 이름을 나열하시오
   final tra = transactions.where((e) => e.year == 2011).toList();
   tra.sort((a,b) => a.value.compareTo(b.value));
@@ -36,7 +37,7 @@ main() {
   transactions.map((e) => e.trader.city).toSet().forEach(print);
   print("------------");
   // 3. 케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬하여 나열하시오
-  transactions.where((e) => e.trader.city == "Cambridge").forEach((e) => print(e.trader.name));
+  transactions.where((e) => e.trader.city == "Cambridge").map((e) => e.trader.name).toSet().forEach(print);
   print("------------");
   // 4. 모든 거래자의 이름을 알파벳순으로 정렬하여 나열하시오
     // sorted 사용 x
