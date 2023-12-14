@@ -2,22 +2,13 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-
 // 임시로 이렇게 만듬 추후 수정 예정
 main() async {
   final Mask mask = await getMaskInfo("http://104.198.248.76:3000/mask");
-  
-  for(Stores val in mask.stores){
-    if(val.name != null &&
-        val.created_at != null &&
-        val.lng != null &&
-        val.lat != null &&
-        val.addr != null &&
-        val.code != null &&
-        val.remain_stat != null &&
-        val.stock_at != null &&
-        val.type != null) {
-        print(val.toMap());
+
+  for (Stores val in mask.stores) {
+    if (val.isNull()) {
+      print(val.toMap());
     }
   }
 }
@@ -33,11 +24,6 @@ Future<Mask> getMaskInfo(String path) async {
 
   return Mask(count: mask.count, stores: jsonStores);
 }
-
-
-
-
-
 
 class Mask {
   int count;
@@ -72,7 +58,7 @@ class Stores {
   String? stock_at;
   String? remain_stat;
 
-  double? lat,lng;
+  double? lat, lng;
 
   Stores({
     required this.addr,
@@ -112,5 +98,19 @@ class Stores {
       lat: map['lat'],
       lng: map['lng'],
     );
+  }
+
+  bool isNull() {
+    if (this.created_at != null &&
+        this.lng != null &&
+        this.lat != null &&
+        this.addr != null &&
+        this.code != null &&
+        this.remain_stat != null &&
+        this.stock_at != null &&
+        this.type != null) {
+      return true;
+    }
+    return false;
   }
 }
