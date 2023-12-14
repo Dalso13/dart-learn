@@ -16,7 +16,7 @@ Future<Map<String,dynamic>> getMovie() async{
   final data = jsonDecode(response.body);
 
 
-  // 클래스 쓰고 맵으로 넘길때;
+  // 클래스 쓰고 넘길때;
   /*final data = MovieLists.fromMap(jsonDecode(response.body));
 
   final movie = data.results.map((e) => Results.fromMap(e)).toList();
@@ -94,39 +94,41 @@ class Results {
       this.voteAverage,
       this.voteCount});
 
-  Results.fromMap(Map<String, dynamic> json) {
-    adult = json['adult'];
-    backdropPath = json['backdrop_path'];
-    genreIds = json['genre_ids'].cast<int>();
-    id = json['id'];
-    originalLanguage = json['original_language'];
-    originalTitle = json['original_title'];
-    overview = json['overview'];
-    popularity = json['popularity'];
-    posterPath = json['poster_path'];
-    releaseDate = json['release_date'];
-    title = json['title'];
-    video = json['video'];
-    voteAverage = json['vote_average'];
-    voteCount = json['vote_count'];
+  Map<String, dynamic> toMap() {
+    return {
+      'adult': this.adult,
+      'backdropPath': this.backdropPath,
+      'genreIds': this.genreIds,
+      'id': this.id,
+      'originalLanguage': this.originalLanguage,
+      'originalTitle': this.originalTitle,
+      'overview': this.overview,
+      'popularity': this.popularity,
+      'posterPath': this.posterPath,
+      'releaseDate': this.releaseDate,
+      'title': this.title,
+      'video': this.video,
+      'voteAverage': this.voteAverage,
+      'voteCount': this.voteCount,
+    };
   }
 
-  Map<String, dynamic> toMap() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['adult'] = this.adult;
-    data['backdrop_path'] = this.backdropPath;
-    data['genre_ids'] = this.genreIds;
-    data['id'] = this.id;
-    data['original_language'] = this.originalLanguage;
-    data['original_title'] = this.originalTitle;
-    data['overview'] = this.overview;
-    data['popularity'] = this.popularity;
-    data['poster_path'] = this.posterPath;
-    data['release_date'] = this.releaseDate;
-    data['title'] = this.title;
-    data['video'] = this.video;
-    data['vote_average'] = this.voteAverage;
-    data['vote_count'] = this.voteCount;
-    return data;
+  factory Results.fromMap(Map<String, dynamic> map) {
+    return Results(
+      adult: map['adult'],
+      backdropPath: map['backdropPath'],
+      genreIds: map['genreIds'] ,
+      id: map['id'],
+      originalLanguage: map['originalLanguage'] ,
+      originalTitle: map['originalTitle'],
+      overview: map['overview'],
+      popularity: map['popularity'],
+      posterPath: map['posterPath'],
+      releaseDate: map['releaseDate'],
+      title: map['title'],
+      video: map['video'],
+      voteAverage: map['voteAverage'],
+      voteCount: map['voteCount'],
+    );
   }
 }
