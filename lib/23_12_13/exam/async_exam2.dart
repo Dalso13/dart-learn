@@ -17,17 +17,13 @@ main() {
   // 클래스 활용해서 데이터 꺼내기
   Future<void> classMovieInfo() async {
 
-    final movieData = await getMovieInfo();
+    final String movieData = await getMovieInfo();
   
     
     // 클래스 사용안하고 할때
-   /* Map<String, dynamic> movie = JsonDecoder().convert(movieData);
+    /*Map<String, dynamic> movie = JsonDecoder().convert(movieData);
 
-    movie.forEach((key, value) {
-      if(key == 'director'){
-        print(value);
-      }
-    })*/
+    print(movie['director']);*/
 
     final Movie movie = Movie.fromMap(JsonDecoder().convert(movieData));
 
